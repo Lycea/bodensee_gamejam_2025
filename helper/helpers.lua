@@ -1,3 +1,5 @@
+
+--- @class helper
 local helper = {}
 
 function helper.random_point_in_cirle(base_pos, min_dist, max_dist)
@@ -46,6 +48,17 @@ function helper.rect_collision(ax1, ay1, ax2, ay2, bx1, by1, bx2, by2)
     return false     -- No collision
   end
   return true        -- Collision detected
+end
+
+-- TODO: copy to base template
+function helper.point_in_area(point, rectangle)
+  return point.x >= rectangle.x and point.x <= rectangle.x + rectangle.width and
+      point.y >= rectangle.y and point.y <= rectangle.y + rectangle.height
+end 
+
+function helper.rect_to_2p(rect)
+    return { p1= { x = rect.x, y = rect.y },
+             p2= { x= rect.x+rect.width, y = rect.y + rect.height}}
 end
 
 function helper.rect_collision_tables(a1,a2,b1,b2)
@@ -115,5 +128,5 @@ function helper.getVectorAtAngle(angle)
   return vecX, vecY
 end
 
-
+--- @return helper
 return helper

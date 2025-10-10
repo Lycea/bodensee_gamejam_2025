@@ -120,11 +120,10 @@ end
 function game.play(dt) 
 
     
+  movement = { x = 0, y = 0 }
 
-  for key,v in pairs(key_list)do
-      attack   = false
-      movement = {x=0,y=0}
-      
+  for key, v in pairs(key_list) do
+    attack       = false
       --print("got some id",plid)
       
         --print(key,v)
