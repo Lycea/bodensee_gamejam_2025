@@ -47,8 +47,10 @@ function hive:draw()
 
   if self._full == true then
     gr.print("!!!",self.pos.x,self.pos.y -self.rad - 5)
+  else
+    g.helper.progressbar({ x = self.pos.x - self.rad, y = self.pos.y - self.rad - 5 },
+                         self.rad*2,5,self._fill_p)
   end
-  
 end
 
 function hive:interact()

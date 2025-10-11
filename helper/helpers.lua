@@ -128,5 +128,25 @@ function helper.getVectorAtAngle(angle)
   return vecX, vecY
 end
 
+
+--- TODO: put to ui library
+function helper.progressbar(pos, w, h, p)
+  local bar_w = w
+  local border_w = bar_w + 1
+
+  love.graphics.setColor(0, 0, 0, 255)
+  love.graphics.rectangle("fill", pos.x, pos.y, border_w, h)
+  love.graphics.setColor(255, 0, 0, 255)
+  love.graphics.rectangle("fill", pos.x + 1, pos.y +1, bar_w, h -2)
+  love.graphics.setColor(255, 255, 255, 255)
+
+  local full_width = bar_w
+  --local rest_width = math.max(full_width - (full_width * 0.01) * 100 - p, 0)
+  local rest_width = full_width * ( (100-p) / 100)
+
+  love.graphics.rectangle("fill", pos.x +1, pos.y +1, rest_width, h-2)
+  love.graphics.setColor(255, 255, 255, 255)
+end
+
 --- @return helper
 return helper

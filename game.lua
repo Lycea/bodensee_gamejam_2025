@@ -51,6 +51,8 @@ main_menue_item = 1
 
 selected_state_idx = 1
 
+use_timer = g.lib.timer(0.3)
+
 
 ----------------------------------------------------------- 
 -- special data fields for debugging / testing only 
@@ -141,7 +143,7 @@ function game.play(dt)
             movement.y=movement.y+action["move"][2]
         end
         
-        if action["use"] and game_state == GameStates.PLAYING then
+        if action["use"] and game_state == GameStates.PLAYING and use_timer:check()  then
           print("use ~~~")
           g.var.map:interact_with(g.cur_selected)
         end

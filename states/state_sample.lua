@@ -12,7 +12,7 @@ end
 
 function sample_state:startup()
     g.var.map_img = g.lib.loader.loadTiles("assets/map.png", scr_w, scr_h)
-    g.var.tiles = g.lib.loader.loadTiles("assets/map_tiles.png",32,32)
+    g.var.tiles = g.lib.loader.loadTiles("assets/tiles.png",32,32)
 
     g.var.map = g.lib.objects.map()
     g.var.player = g.lib.objects.player()

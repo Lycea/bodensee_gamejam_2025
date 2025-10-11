@@ -48,9 +48,15 @@ function player:add(what, amount)
 end
 
 function player:remove(what, amount)
+  if self.inventory[what] == nil or (self.inventory[what] or 0)< (amount or 1)  then
+    print("not able to use this item!")
+    return false
+  end
+
   amount = amount or 1
   self.inventory[what] = self.inventory[what] - amount
   self.inventory_cnt = self.inventory_cnt + amount
+  return true
 end
 
 function player:full()
