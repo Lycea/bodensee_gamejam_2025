@@ -21,7 +21,7 @@ function colors.fg_set(name)
 end
 
 function colors.reset()
-	love.graphics.setColor(0,0,0,255)
+	love.graphics.setColor(255,255,255,255)
 end
 
 

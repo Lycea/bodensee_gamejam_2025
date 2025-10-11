@@ -26,6 +26,16 @@ g.var.player = nil --- @type player
 g.var.cell_width = 32
 g.var.cell_height = 32
 
+
+function g.cell(num)
+  return g.var.cell_width * num
+end
+
+
+function g.row(num)
+  return g.var.cell_height * num
+end
+
 g.var.movement = {}
 g.var.movement.x = 0
 g.var.movement.y = 0

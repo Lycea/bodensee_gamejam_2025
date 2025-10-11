@@ -5,14 +5,18 @@
  
  
  key_mapper={
+   a = "left",
+   d = "right",
+   w ="up",
+   s = "down",
+    
    left = "left",
    right = "right",
-   up="up",
-   down="down",
-   
+   up = "up",
+   down = "down",
+
    escape="exit",
-   u ="use",
-   x = "attack",
+   f ="use",
    ["return"] = "select",
    
    mt={
@@ -34,7 +38,7 @@ key_list_game={
   right={move={1,0}},
   
   attack={attack=true},
-  
+  use ={use=true},
   exit = {exit = true},
   default={},
   mt={

@@ -2,11 +2,11 @@ local interactable = require("objects.base_obj.interactable")
 
 
 
---- @class hive : interactable
-local hive = interactable:extend()
+--- @class capper : interactable
+local capper = interactable:extend()
 
 
-function hive:new(x, y)
+function capper:new(x, y)
     self.pos = { x = x, y = y }
     self.rad = 16
     self._full = false
@@ -15,7 +15,7 @@ function hive:new(x, y)
     self._selected = false
 end
 
-function hive:update()
+function capper:update()
     -- self._selected = self:in_distance(g.mouse_coords) 
     local tmp_p = g.var.player
 
@@ -32,14 +32,14 @@ function hive:update()
     end
 
     if not self._full then
-        self._fill_p = self._fill_p + 0.1
+        self._fill_p = self._fill_p + 10
     end
 
     return self._selected
 end
 
-function hive:draw()
-  gr.draw(g.var.tiles.image,g.var.tiles[2][2],self.pos.x -self.rad,self.pos.y-self.rad)
+function capper:draw()
+  gr.draw(g.var.tiles.image,g.var.tiles[3][1],self.pos.x -self.rad,self.pos.y-self.rad)
   self:show_area()
   if self._selected == true then
     self:draw_hint("f| collect")
@@ -51,16 +51,15 @@ function hive:draw()
   
 end
 
-function hive:interact()
-  print("interacted with hive")
+function capper:interact()
+  print("interacted with capper")
   if self._full and not g.var.player:full() then
-    print("resetting hive ...")
     self._full = false
-    self._fill_p = 0
+    self._full_p = 0
     
-    g.var.player:add("raw comb")
+    g.var.player:add("open comb")
   end
 end
 
 
-return hive
+return capper

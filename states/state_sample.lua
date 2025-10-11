@@ -11,12 +11,11 @@ end
 
 
 function sample_state:startup()
-g.var.map_img = g.lib.loader.loadTiles("assets/map.png",scr_w,scr_h)
+    g.var.map_img = g.lib.loader.loadTiles("assets/map.png", scr_w, scr_h)
+    g.var.tiles = g.lib.loader.loadTiles("assets/map_tiles.png",32,32)
 
-g.var.map = g.lib.objects.map()
-g.var.player = g.lib.objects.player()
-
-
+    g.var.map = g.lib.objects.map()
+    g.var.player = g.lib.objects.player()
 end
 
 
@@ -24,10 +23,8 @@ end
 
 
 function sample_state:draw()
-    
     g.var.colors.bg_set("green")
-    love.graphics.setColor(255,255,255,255)
-    gr.draw(g.var.map_img.image,0,0)
+    g.var.colors.reset()
     g.var.map:draw()
     g.var.player:draw()
 end

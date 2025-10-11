@@ -102,11 +102,16 @@ function update_menue()
 end
 
 
+-- TODO: add to template
+local function direct_start()
+    show_main_menue = false
+    game_state = GameStates.PLAYING
+    game.new()
+end
 
 --loading a game
 function game.load() 
-
-
+  direct_start()
 end 
  
  
@@ -136,7 +141,11 @@ function game.play(dt)
             movement.y=movement.y+action["move"][2]
         end
         
-        
+        if action["use"] and game_state == GameStates.PLAYING then
+          print("use ~~~")
+          g.var.map:interact_with(g.cur_selected)
+        end
+
         if action["exit"]  then
             
             if exit_timer +0.3 < love.timer.getTime() then
@@ -208,11 +217,10 @@ end
 
 
 function game.MouseHandle(x,y,btn) 
-   
 end 
  
 function game.MouseMoved(mx,my) 
-  mouse_coords={mx,my}
+  g.mouse_coords={x=mx,y=my}
 end 
  
  
