@@ -32,11 +32,10 @@ function upgrader:update()
 end
 
 function upgrader:draw()
-  print("upgrader, tile", self._tile)
   gr.draw(g.var.tiles.image, g.var.tiles[8][self._tile], self.pos.x - self.rad, self.pos.y - self.rad)
 
   if self._maxed == false then
-    gr.print(self._next_price .. " $", self.pos.x - self.rad, self.pos.y - self.rad * 2)
+    gr.print( math.ceil(self._next_price) .. " $", self.pos.x - self.rad, self.pos.y - self.rad * 2)
   else
     gr.print("MAXED", self.pos.x - self.rad, self.pos.y - self.rad * 2)
   end
@@ -50,7 +49,7 @@ end
 
 function upgrader:interact()
   local avail_money = g.var.player:check_money()
-  if avail_money > self._next_price and not self._maxed then
+  if avail_money >= self._next_price and not self._maxed then
     print("interacted with upgrader")
     self.cur_up = self.cur_up + 1
 

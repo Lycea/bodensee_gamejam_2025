@@ -71,7 +71,8 @@ end
 
 local function capper_upg()
   if current_cap_upg < max_cap_upg then
-    
+    g.var.map._capper:upgrade()
+    return true
   end
 end
 
@@ -84,15 +85,16 @@ end
 local function inv_upg()
   if current_inv_upg < max_inv_upg then
     current_inv_upg = current_inv_upg + 1
-    g.var.player.inventory_size_full = g.var.player.inventory_size_full +5
+    g.var.player.inventory_size_full = g.var.player.inventory_size_full + 5
+    return true
   end
 end
 
 function map:__setup_upgraders()
-  self:_add_object(g.lib.objects.upgrader(cell(3.5), row(10.5), 40, 1.5, hive_upg, 1, "buy hive",max_hives))
-  self:_add_object(g.lib.objects.upgrader(cell(5.5), row(10.5), 40, 1.5, capper_upg, 2, "upg capper",max_cap_upg))
-  self:_add_object(g.lib.objects.upgrader(cell(3.5), row(12.5), 40, 1.5, ext_upg, 3, "upg extractor",max_ext_upg))
-  self:_add_object(g.lib.objects.upgrader(cell(5.5), row(12.5), 40, 1.5, inv_upg, 4, "upg inv",max_inv_upg))
+  self:_add_object(g.lib.objects.upgrader(cell(3.5), row(10.5), 5, 1.5, hive_upg, 1, "buy hive",max_hives))
+  self:_add_object(g.lib.objects.upgrader(cell(5.5), row(10.5), 5, 1.5, capper_upg, 2, "upg capper",max_cap_upg))
+  self:_add_object(g.lib.objects.upgrader(cell(3.5), row(12.5), 5, 1.5, ext_upg, 3, "upg extractor",max_ext_upg))
+  self:_add_object(g.lib.objects.upgrader(cell(5.5), row(12.5), 5, 1.5, inv_upg, 4, "upg inv",max_inv_upg))
 end
 
 function map:new()
