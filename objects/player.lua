@@ -89,10 +89,12 @@ function player:draw_inv()
             inv_txt = inv_txt .. num .. " x " .. item .."\n"
         end
     end
-    gr.print(inv_txt, cell(18), row(3))
 
 
-    gr.print("money: "..self.money, cell(18), row(2))
+  gr.print("money: " .. self.money, cell(18), row(2.3))
+
+  gr.print("INVENTORY   ("..self.inventory_cnt.."/"..self.inventory_size_full..")", cell(18), row(3.3))
+  gr.print(inv_txt, cell(18), row(4.5))
 end
 
 function player:draw()

@@ -83,7 +83,8 @@ end
 
 local function inv_upg()
   if current_inv_upg < max_inv_upg then
-    
+    current_inv_upg = current_inv_upg + 1
+    g.var.player.inventory_size_full = g.var.player.inventory_size_full +5
   end
 end
 
