@@ -33,7 +33,7 @@ jobs:
     - name: "zip game ..."
       shell: bash
       run: |
-        zip -9 -r Game.love .
+        zip -9 -r TinyBeeSim.love .
         
     - name: "build web version..."
       shell: bash
