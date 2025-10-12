@@ -40,6 +40,7 @@ g.var.movement = {}
 g.var.movement.x = 0
 g.var.movement.y = 0
 
+g.mouse_coords = {x=0,y=0}
 return g
 
 
