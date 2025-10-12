@@ -29,9 +29,9 @@ end
 
 --- @function show_area,  debug draws the are
 function interact:show_area()
-  g.var.colors.fg_set("red")
-  gr.circle("line", self.pos.x, self.pos.y, self.rad)
-  g.var.colors.reset()
+  -- g.var.colors.fg_set("red")
+  -- gr.circle("line", self.pos.x, self.pos.y, self.rad)
+  -- g.var.colors.reset()
 end
 
 

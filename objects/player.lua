@@ -21,6 +21,7 @@ function player:new(x, y)
     self.inventory_cnt = 0
 
     self.money = 0
+--    self.money = 2000
 end
 
 function player:update()
