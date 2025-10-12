@@ -19,6 +19,8 @@ function player:new(x, y)
     self.inventory = {}
     self.inventory_size_full = 10
     self.inventory_cnt = 0
+
+    self.money = 0
 end
 
 function player:update()
@@ -47,6 +49,18 @@ function player:add(what, amount)
   self.inventory_cnt = self.inventory_cnt + amount
 end
 
+function player:add_money(amount)
+  self.money = self.money + amount
+end
+
+function player:check_money()
+  return self.money
+end
+
+function player:remove_money(amount)
+  self.money = self.money - amount
+end
+
 function player:remove(what, amount)
   if self.inventory[what] == nil or (self.inventory[what] or 0)< (amount or 1)  then
     print("not able to use this item!")
@@ -55,7 +69,7 @@ function player:remove(what, amount)
 
   amount = amount or 1
   self.inventory[what] = self.inventory[what] - amount
-  self.inventory_cnt = self.inventory_cnt + amount
+  self.inventory_cnt = self.inventory_cnt - amount
   return true
 end
 
@@ -63,6 +77,9 @@ function player:full()
   return  self.inventory_cnt >= self.inventory_size_full
 end
 
+function player:check_amount(what)
+  return self.inventory[what] or 0
+end
 
 function player:draw_inv()
     inv_txt = ""
@@ -71,8 +88,10 @@ function player:draw_inv()
             inv_txt = inv_txt .. num .. " x " .. item .."\n"
         end
     end
-    gr.print(inv_txt,cell(20),row(1))
+    gr.print(inv_txt, cell(18), row(3))
 
+
+    gr.print("money: "..self.money, cell(18), row(2))
 end
 
 function player:draw()

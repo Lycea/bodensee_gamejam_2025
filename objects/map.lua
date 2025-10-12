@@ -48,6 +48,11 @@ function map:new()
     self:_add_object(g.lib.objects.capper(cell(5.5), row(8.5)))
     self:_add_object(g.lib.objects.extractor(cell(7.5), row(8.5)))
 
+    self._register = g.lib.objects.money_register(cell(12.5),row(17.5))
+    self:_add_object(self._register)
+    self:_add_object(g.lib.objects.store(cell(10.5), row(17.5) ))
+
+
     self._collision_rects ={
       rect(cell(1), row(1), cell(1) * 23, row(1)), --fence top
       rect(cell(1), row(1), cell(1), row(1) * 15), --fence left
