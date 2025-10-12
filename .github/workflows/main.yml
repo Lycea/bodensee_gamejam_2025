@@ -33,12 +33,12 @@ jobs:
     - name: "zip game ..."
       shell: bash
       run: |
-        zip -9 -r TinyBeeSim.love .
+        zip -9 -r Game.love .
         
     - name: "build web version..."
       shell: bash
       run: |
-        npx love.js Game.love game -c --title Game
+        npx love.js Game.love game -c --title TinyBeeSim
 
     - name: 'Setup Pages'
       uses: actions/configure-pages@v5
