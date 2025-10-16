@@ -77,8 +77,9 @@ local function capper_upg()
 end
 
 local function ext_upg()
-  if current_ext_upg < max_ext_upg then
-    
+  if current_cap_upg < max_cap_upg then
+    g.var.map._extractor:upgrade()
+    return true
   end
 end
 
