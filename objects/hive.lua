@@ -12,6 +12,11 @@ function hive:new(x, y)
     self._full = false
     self._fill_p = 0
 
+    self._bees = {}
+    for i = 0, 5 do
+      table.insert(self._bees, g.lib.objects.bee(x, y, self.pos))
+    end
+
     self._selected = false
 end
 
@@ -35,6 +40,10 @@ function hive:update()
         self._fill_p = self._fill_p + 0.1
     end
 
+    for _,bee in pairs(self._bees) do
+      bee:update()
+    end
+
     return self._selected
 end
 
@@ -46,10 +55,14 @@ function hive:draw()
   end
 
   if self._full == true then
-    gr.print("!!!",self.pos.x,self.pos.y -self.rad - 5)
+    gr.print("!!!", self.pos.x, self.pos.y - self.rad - 5)
   else
     g.helper.progressbar({ x = self.pos.x - self.rad, y = self.pos.y - self.rad - 5 },
-                         self.rad*2,5,self._fill_p)
+      self.rad * 2, 5, self._fill_p)
+  end
+
+  for _, bee in pairs(self._bees) do
+    bee:draw()
   end
 end
 
