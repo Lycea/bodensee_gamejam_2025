@@ -13,7 +13,7 @@ function hive:new(x, y)
     self._fill_p = 0
 
     self._bees = {}
-    for i = 0, 5 do
+    for i = 0, 20 do
       table.insert(self._bees, g.lib.objects.bee(x, y, self.pos))
     end
 
@@ -23,8 +23,6 @@ end
 function hive:update()
     -- self._selected = self:in_distance(g.mouse_coords) 
     local tmp_p = g.var.player
-
-    
 
     -- self._selected = g.helper.circ_collision(self.pos.x, self.pos.y, self.rad,
     --     g.var.player.pos.x + g.var.player.width / 2,
