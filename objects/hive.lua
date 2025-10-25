@@ -52,17 +52,22 @@ function hive:draw()
     self:draw_hint("f| collect")
   end
 
-  if self._full == true then
-    gr.print("!!!", self.pos.x, self.pos.y - self.rad - 5)
-  else
+  for _, bee in pairs(self._bees) do
+    bee:draw()
+  end
+
+
+    if self._full == true then
+        g.var.anims.done:draw("var1",
+                              {x = self.pos.x - 16,
+                               y=self.pos.y -self.rad -5 - 16})
+    -- gr.print("!!!", self.pos.x, self.pos.y - self.rad - 5)
+    else
     g.helper.progressbar({ x = self.pos.x - self.rad, y = self.pos.y - self.rad - 5 },
       self.rad * 2, 5, self._fill_p)
   end
 
-  for _, bee in pairs(self._bees) do
-    bee:draw()
   end
-end
 
 function hive:interact()
   print("interacted with hive")

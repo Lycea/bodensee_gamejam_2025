@@ -107,7 +107,13 @@ function extractor:draw()
     end
   
   if self._done == true then
-    gr.print("!!!",self.pos.x,self.pos.y -self.rad - 5)
+    gr.print("!!!", self.pos.x, self.pos.y - self.rad - 5)
+    
+    g.var.anims.done:draw("var1",
+                          {
+                            x = self.pos.x - 16,
+                            y = self.pos.y - self.rad - 5 - 16
+    })
   elseif self._state == "filled" then
     g.helper.progressbar({ x = self.pos.x - self.rad, y = self.pos.y - self.rad - 5 },
                          self.rad*2,5,self._done_p)
