@@ -166,9 +166,6 @@ function game.play(dt)
  
   sample_state:update(dt)
   
-  
-  -- Enemy behaviour basic / Enemy turn
-  
 
 end 
  

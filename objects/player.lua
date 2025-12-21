@@ -42,7 +42,7 @@ function player:update()
     -- self.pos.y = new_y
 end
 
-function player:add(what, amount)
+function player:add(what, amount, options)
   amount = amount or 1
   print("adding " .. (amount or 1) .. " of " .. what)
       
@@ -87,15 +87,15 @@ function player:check_amount(what)
 end
 
 function player:draw_inv()
-    inv_txt = ""
-    for item, num in pairs(self.inventory) do
-        if num ~= 0 then
-            inv_txt = inv_txt .. num .. " x " .. item .."\n"
-        end
+  inv_txt = ""
+  for item, num in pairs(self.inventory) do
+    if num ~= 0 then
+      inv_txt = inv_txt .. num .. " x " .. item .."\n"
     end
+  end
 
 
-    gr.print("money: " .. math.floor(self.money), cell(18), row(2.3))
+  gr.print("money: " .. math.floor(self.money), cell(18), row(2.3))
 
   gr.print("INVENTORY   ("..self.inventory_cnt.."/"..self.inventory_size_full..")", cell(18), row(3.3))
   gr.print(inv_txt, cell(18), row(4.5))

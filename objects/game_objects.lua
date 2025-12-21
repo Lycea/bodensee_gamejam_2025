@@ -7,8 +7,8 @@ gobj.capper = require("objects.capper")
 gobj.extractor = require("objects.extractor")
 gobj.money_register = require("objects.money_register")
 gobj.store = require("objects.store")
+gobj.shop = require("objects.shop")
 gobj.upgrader = require("objects.upgrader")
-
 gobj.map = require("objects.map")
 gobj.player = require("objects.player")
 

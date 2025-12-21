@@ -9,6 +9,10 @@ g.lib.timer = require("helper.timer")
 g.lib.objects = require("objects.game_objects")
 g.lib.loader = require("helper.load_helper")
 g.lib.anim = require("helper.anima")
+g.lib.ui = require("helper.SimpleUI.SimpleUI")() --- @type SimpleUI_
+
+
+g.lib.tab_menue = require("objects.ui.tab_menue")---@type TabMenu
 
 -- TODO: add color helper to template
 g.var.colors = require("helper.colors")
@@ -25,6 +29,9 @@ g.var.player = nil --- @type player
 
 g.var.cell_width = 32
 g.var.cell_height = 32
+
+g.var.uis = {}
+g.var.uis.upgrade_menue ={}
 
 
 function g.cell(num)
